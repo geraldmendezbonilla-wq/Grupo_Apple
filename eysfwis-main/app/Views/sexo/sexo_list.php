@@ -2,6 +2,36 @@
 
 <?= $this->section('content') ?>
 
+<!-- Cabecera Moderna e Innovadora del Módulo -->
+<div class="p-3 mb-4 bg-white rounded-4 border shadow-sm position-relative overflow-hidden">
+    <div class="position-absolute top-0 end-0 bg-info bg-gradient opacity-10 rounded-circle" style="width: 120px; height: 120px; margin-right: -40px; margin-top: -40px;"></div>
+    
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 position-relative z-1">
+        <div class="d-flex align-items-center gap-3">
+            <div class="p-3 bg-info bg-gradient text-white rounded-3 shadow-sm d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                <i class="bi bi-gender-ambiguous fs-4"></i>
+            </div>
+            <div>
+                <h2 class="h4 fw-extrabold text-dark mb-1 d-flex align-items-center gap-2">
+                    <span style="background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Catálogo de Registro de Sexo
+                    </span>
+                </h2>
+                <p class="text-muted small mb-0 d-flex align-items-center gap-1">
+                    <i class="bi bi-shield-check text-info"></i> Parámetros base del sistema | <strong>Grupo Apple</strong>
+                </p>
+            </div>
+        </div>
+        
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-info-subtle text-info border border-info-subtle px-3 py-2 rounded-pill shadow-xs">
+                <i class="bi bi-activity me-1"></i> Módulo Activo
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Tarjeta de Contenido / Lista -->
 <div class="card shadow-sm">
     <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
         <div>
