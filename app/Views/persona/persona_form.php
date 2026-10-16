@@ -41,7 +41,7 @@
 
                         <div class="col-md-6">
                             <label for="nombres" class="form-label fw-semibold">Nombres Completos <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control <?= isset($errors['nombres']) ? 'is-invalid' : '' ?>" id="nombres" name="nombres" value="<?= esc($old['nombres'] ?? old('nombres')) ?>" placeholder="Ej: Juan Carlos" required>
+                            <input type="text" class="form-control <?= isset($errors['nombres']) ? 'is-invalid' : '' ?>" id="nombres" name="nombres" value="<?= esc($old['nombres'] ?? old('nombres')) ?>" placeholder="Ej: Juan Carlos" maxlength="100" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,100}" title="Use solo letras y espacios" required>
                             <?php if (isset($errors['nombres'])): ?>
                                 <div class="invalid-feedback"><?= esc($errors['nombres']) ?></div>
                             <?php endif; ?>
@@ -49,7 +49,7 @@
 
                         <div class="col-md-6">
                             <label for="apellidos" class="form-label fw-semibold">Apellidos Completos <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control <?= isset($errors['apellidos']) ? 'is-invalid' : '' ?>" id="apellidos" name="apellidos" value="<?= esc($old['apellidos'] ?? old('apellidos')) ?>" placeholder="Ej: Pérez Rodríguez" required>
+                            <input type="text" class="form-control <?= isset($errors['apellidos']) ? 'is-invalid' : '' ?>" id="apellidos" name="apellidos" value="<?= esc($old['apellidos'] ?? old('apellidos')) ?>" placeholder="Ej: Pérez Rodríguez" maxlength="100" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{2,100}" title="Use solo letras y espacios" required>
                             <?php if (isset($errors['apellidos'])): ?>
                                 <div class="invalid-feedback"><?= esc($errors['apellidos']) ?></div>
                             <?php endif; ?>
