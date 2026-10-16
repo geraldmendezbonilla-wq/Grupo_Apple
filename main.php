@@ -134,8 +134,10 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-        }
 
+   
+        }
+        
         .main-container {
             padding: 1.75rem;
             flex: 1;
@@ -289,6 +291,10 @@
                     <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                         <i class="bi bi-plus-circle me-1"></i> Acceso Rápido
                     </button>
+                     <!-- Botón de Modo Oscuro -->
+<button class="btn btn-outline-secondary btn-sm" id="btnToggleDarkMode" title="Cambiar tema">
+    <i class="bi bi-moon-fill" id="iconDarkMode"></i>
+</button>
                     <ul class="dropdown-menu dropdown-menu-end shadow-sm">
                         <li><a class="dropdown-item" href="<?= base_url('persona/add') ?>"><i class="bi bi-person-plus me-2 text-primary"></i>Nueva Persona</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('direccion/add') ?>"><i class="bi bi-geo-alt me-2 text-info"></i>Nueva Dirección</a></li>
@@ -450,6 +456,32 @@ setInterval(actualizarReloj, 1000);
             behavior: 'smooth'
         });
     });
+</script>
+<script>
+    const btnToggle = document.getElementById('btnToggleDarkMode');
+    const iconMode = document.getElementById('iconDarkMode');
+    
+    // Cargar tema guardado previamente o usar claro por defecto
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', savedTheme);
+    actualizarIcono(savedTheme);
+
+    btnToggle.addEventListener('click', () => {
+        let currentTheme = document.documentElement.getAttribute('data-bs-theme');
+        let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        actualizarIcono(newTheme);
+    });
+
+    function actualizarIcono(theme) {
+        if (theme === 'dark') {
+            iconMode.className = 'bi bi-sun-fill text-warning';
+        } else {
+            iconMode.className = 'bi bi-moon-fill';
+        }
+    }
 </script>
 </body>
 </html>
