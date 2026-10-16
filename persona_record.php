@@ -81,6 +81,20 @@
                             <?php endif; ?>
                         </dd>
 
+
+
+                        <div class="form-group mb-3">
+    <label for="etnia" class="form-label">Etnia:</label>
+    <select name="etnia" id="etnia" class="form-control" required>
+        <option value="">-- Seleccione una opción --</option>
+        <option value="Mestizo">Mestizo</option>
+        <option value="Afroecuatoriano">Afroecuatoriano</option>
+        <option value="Indígena">Indígena</option>
+        <option value="Blanco">Blanco</option>
+        <option value="Montubio">Montubio</option>
+        <option value="Otro">Otro</option>
+    </select>
+</div>
                         <dt class="col-sm-5 text-muted small text-uppercase">Estado Civil:</dt>
                         <dd class="col-sm-7">
                             <?php if (!empty($persona['estadocivil_nombre'])): ?>
