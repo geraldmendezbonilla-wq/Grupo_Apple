@@ -148,6 +148,18 @@
             background-color: #ffffff;
         }
 
+        /* Realce visual de los campos del formulario */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--ci-primary);
+            box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+        }
+
+        .form-control.is-invalid:focus,
+        .form-select.is-invalid:focus {
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+        }
+
         .card-header {
             background-color: #ffffff;
             border-bottom: 1px solid var(--ci-card-border);
