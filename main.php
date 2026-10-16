@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title ?? 'Sistema de Información - CodeIgniter 4') ?></title>
 
+
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -193,7 +194,20 @@
             font-size: 0.85rem;
             color: #64748b;
         }
+
+        @media print {
+    #sidebar, .top-navbar, .btn, button {
+        display: none !important;
+    }
+    #content {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+}
     </style>
+
+
 </head>
 <body>
 
@@ -294,6 +308,9 @@
     </span>
 </div>
         </header>
+        <button onclick="window.print()" class="btn btn-outline-secondary btn-sm">
+    <i class="bi bi-printer me-1"></i> Imprimir Página
+</button>
 
         <!-- Container for View Content -->
         <main class="main-container">
