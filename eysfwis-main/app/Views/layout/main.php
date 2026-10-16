@@ -329,19 +329,16 @@
             <?= $this->renderSection('content') ?>
         </main>
 
+    
         <!-- Footer -->
-        <footer>
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <div>
-                    <strong>Sistema de Información eysfwis</strong> &copy; <?= date('Y') ?> | Gestión de Persona, Sexo, Dirección, Correo Electrónico y Estado Civil.
-                </div>
-                <div>
-                    <span class="badge bg-light text-secondary border">CodeIgniter 4 + MariaDB</span>
-                </div>
+        <footer class="bg-dark text-white text-center py-3 mt-5">
+            <div class="container">
+                <p class="mb-0 small">
+                    &copy; 2026 <strong>Grupo Apple</strong> - Sistema de Información Web | Todos los derechos reservados.
+                </p>
             </div>
         </footer>
-    </div>
-</div>
+
 
 <!-- Modal Universal de Confirmación de Borrado -->
 <div class="modal fade" id="modalUniversalDelete" tabindex="-1" aria-hidden="true">
