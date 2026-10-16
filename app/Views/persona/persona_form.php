@@ -25,7 +25,7 @@
                     <div class="row g-3 mb-3">
                         <div class="col-md-6">
                             <label for="cedula" class="form-label fw-semibold">Número de Cédula / DNI <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control <?= isset($errors['cedula']) ? 'is-invalid' : '' ?>" id="cedula" name="cedula" value="<?= esc($old['cedula'] ?? old('cedula')) ?>" placeholder="Ej: 0801234567" required>
+                            <input type="text" class="form-control <?= isset($errors['cedula']) ? 'is-invalid' : '' ?>" id="cedula" name="cedula" value="<?= esc($old['cedula'] ?? old('cedula')) ?>" placeholder="Ej: 0801234567" maxlength="20" pattern="[0-9]{5,20}" title="Ingrese entre 5 y 20 números" required>
                             <?php if (isset($errors['cedula'])): ?>
                                 <div class="invalid-feedback"><?= esc($errors['cedula']) ?></div>
                             <?php endif; ?>
