@@ -15,7 +15,7 @@ class SexoModel extends Model
     protected $allowedFields    = ['nombre'];
 
     protected $validationRules = [
-        'nombre' => 'required|min_length[2]|max_length[50]',
+        'nombre' => 'required|min_length[2]|max_length[50]|is_unique[sexo.nombre,idsexo,{idsexo}]',
     ];
 
     protected $validationMessages = [
@@ -23,6 +23,7 @@ class SexoModel extends Model
             'required'   => 'El nombre del sexo es obligatorio.',
             'min_length' => 'Debe contener al menos 2 caracteres.',
             'max_length' => 'No puede superar los 50 caracteres.',
+            'is_unique'  => 'Ese nombre de sexo ya está registrado.',
         ],
     ];
 
