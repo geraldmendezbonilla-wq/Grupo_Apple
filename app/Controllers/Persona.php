@@ -157,8 +157,8 @@ class Persona extends BaseController
     {
         $postData = [
             'cedula'          => trim($this->request->getPost('cedula') ?? ''),
-            'nombres'         => trim($this->request->getPost('nombres') ?? ''),
-            'apellidos'       => trim($this->request->getPost('apellidos') ?? ''),
+            'nombres'         => preg_replace('/\s+/', ' ', trim($this->request->getPost('nombres') ?? '')),
+            'apellidos'       => preg_replace('/\s+/', ' ', trim($this->request->getPost('apellidos') ?? '')),
             'fechanacimiento' => !empty($this->request->getPost('fechanacimiento')) ? $this->request->getPost('fechanacimiento') : null,
             'idsexo'          => !empty($this->request->getPost('idsexo')) ? (int)$this->request->getPost('idsexo') : null,
             'idestadocivil'   => !empty($this->request->getPost('idestadocivil')) ? (int)$this->request->getPost('idestadocivil') : null,
@@ -235,8 +235,8 @@ class Persona extends BaseController
 
         $postData = [
             'cedula'          => trim($this->request->getPost('cedula') ?? ''),
-            'nombres'         => trim($this->request->getPost('nombres') ?? ''),
-            'apellidos'       => trim($this->request->getPost('apellidos') ?? ''),
+            'nombres'         => preg_replace('/\s+/', ' ', trim($this->request->getPost('nombres') ?? '')),
+            'apellidos'       => preg_replace('/\s+/', ' ', trim($this->request->getPost('apellidos') ?? '')),
             'fechanacimiento' => !empty($this->request->getPost('fechanacimiento')) ? $this->request->getPost('fechanacimiento') : null,
             'idsexo'          => !empty($this->request->getPost('idsexo')) ? (int)$this->request->getPost('idsexo') : null,
             'idestadocivil'   => !empty($this->request->getPost('idestadocivil')) ? (int)$this->request->getPost('idestadocivil') : null,
