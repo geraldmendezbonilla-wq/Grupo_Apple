@@ -422,5 +422,34 @@ setInterval(actualizarReloj, 1000);
 </script>
 
 <?= $this->renderSection('scripts') ?>
+
+<!-- Botón Volver Arriba -->
+<button type="button" id="btnBackToTop" class="btn btn-primary rounded-circle shadow-lg" 
+        style="position: fixed; bottom: 25px; right: 25px; display: none; z-index: 1050; width: 45px; height: 45px;" 
+        title="Volver arriba">
+    <i class="bi bi-arrow-up fs-5"></i>
+</button>
+
+<script>
+    // Mostrar u ocultar el botón dependiendo del desplazamiento (scroll)
+    window.addEventListener('scroll', function() {
+        let btnTop = document.getElementById('btnBackToTop');
+        if (window.scrollY > 300) {
+            btnTop.style.display = 'flex';
+            btnTop.style.alignItems = 'center';
+            btnTop.style.justifyContent = 'center';
+        } else {
+            btnTop.style.display = 'none';
+        }
+    });
+
+    // Acción de desplazamiento suave hacia el inicio de la página
+    document.getElementById('btnBackToTop').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 </body>
 </html>
