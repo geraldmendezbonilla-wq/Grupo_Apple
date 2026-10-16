@@ -3,20 +3,15 @@
 <?= $this->section('content') ?>
 
 <!-- Encabezado de Bienvenida -->
-<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
-    <div>
-        <h2 class="h3 fw-bold text-dark mb-1">
-            <i class="bi bi-speedometer2 text-primary me-2"></i>Panel de Control y Estadísticas
-        </h2>
-        <p class="text-muted mb-0">Sistema integral para la administración de personas, sus catálogos y datos de contacto.</p>
-    </div>
-    <div class="d-flex gap-2">
-        <a href="<?= base_url('persona/add') ?>" class="btn btn-primary">
-            <i class="bi bi-person-plus-fill me-1"></i> Nueva Persona
-        </a>
-        <a href="<?= base_url('persona/listar') ?>" class="btn btn-outline-secondary">
-            <i class="bi bi-list-ul me-1"></i> Listar Personas
-        </a>
+<!-- Encabezado de Bienvenida -->
+<div class="p-5 mb-4 bg-light rounded-3 border shadow-sm">
+    <div class="container-fluid py-2">
+        <h1 class="display-5 fw-bold text-primary mb-3">
+            Bienvenido al Sistema de Gestión eysfwis
+        </h1>
+        <p class="lead text-secondary mb-4">
+            Panel principal administrado por el <strong>Grupo Apple</strong> bajo la metodología Scrum.
+        </p>
     </div>
 </div>
 
