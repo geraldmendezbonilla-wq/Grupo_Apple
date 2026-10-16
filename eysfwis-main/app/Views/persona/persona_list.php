@@ -2,23 +2,27 @@
 
 <?= $this->section('content') ?>
 
-<div class="card shadow-sm">
-    <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
-        <div>
-            <h5 class="mb-0 fw-bold text-dark">
-                <i class="bi bi-people-fill text-primary me-2"></i>Listado General de Personas
-            </h5>
-            <small class="text-muted">Total de registros encontrados: <?= esc($total) ?></small>
-        </div>
-        <div class="d-flex gap-2">
-            <a href="<?= base_url('persona/add') ?>" class="btn btn-primary btn-sm">
-                <i class="bi bi-person-plus-fill me-1"></i> Nueva Persona
-            </a>
-            <a href="<?= base_url('persona') ?>" class="btn btn-outline-secondary btn-sm">
-                <i class="bi bi-card-text me-1"></i> Ficha Registro
-            </a>
-        </div>
+<div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+    <div>
+        <h2 class="h3 fw-extrabold mb-1 d-flex align-items-center gap-2">
+            <span class="p-2 bg-primary bg-gradient text-white rounded-3 shadow-sm d-inline-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                <i class="bi bi-people-fill fs-5"></i>
+            </span>
+            <span style="background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Directorio Inteligente de Personas
+            </span>
+        </h2>
+        <p class="text-muted small mb-0 d-flex align-items-center gap-1">
+            <i class="bi bi-patch-check-fill text-primary"></i>
+            Módulo optimizado para la gestión de registros | <strong>Grupo Apple</strong>
+        </p>
     </div>
+    <div>
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill shadow-sm fs-7">
+            <i class="bi bi-cpu me-1"></i> Core v2.4 Active
+        </span>
+    </div>
+</div>
 
     <!-- Barra de Búsqueda -->
     <div class="p-3 bg-light border-bottom">
