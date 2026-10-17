@@ -99,7 +99,11 @@ class Sexo extends BaseController
     public function store()
     {
         $postData = [
+<<<<<<< HEAD
             'nombre' => preg_replace('/\s+/', ' ', trim($this->request->getPost('nombre') ?? '')),
+=======
+            'nombre' => trim($this->request->getPost('nombre') ?? ''),
+>>>>>>> a198ee1232cd59df41937398d2f3ee82a256444f
         ];
 
         if (!$this->sexoModel->insert($postData)) {
@@ -141,7 +145,11 @@ class Sexo extends BaseController
         }
 
         $postData = [
+<<<<<<< HEAD
             'nombre' => preg_replace('/\s+/', ' ', trim($this->request->getPost('nombre') ?? '')),
+=======
+            'nombre' => trim($this->request->getPost('nombre') ?? ''),
+>>>>>>> a198ee1232cd59df41937398d2f3ee82a256444f
         ];
 
         if (!$this->sexoModel->update((int)$id, $postData)) {

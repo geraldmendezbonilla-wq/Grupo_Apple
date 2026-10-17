@@ -26,7 +26,11 @@
             <div class="col-md-5">
                 <div class="input-group input-group-sm">
                     <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+<<<<<<< HEAD
                     <input type="text" name="q" class="form-control" placeholder="Buscar por cédula, nombres, apellidos, sexo, estado civil..." minlength="2" value="<?= esc($search ?? '') ?>">
+=======
+                    <input type="text" name="q" class="form-control" placeholder="Buscar por cédula, nombres, apellidos, sexo, estado civil..." value="<?= esc($search ?? '') ?>">
+>>>>>>> a198ee1232cd59df41937398d2f3ee82a256444f
                 </div>
             </div>
             <div class="col-auto">
