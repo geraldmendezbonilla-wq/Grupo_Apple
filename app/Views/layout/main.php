@@ -16,11 +16,19 @@
 
     <style>
         :root {
+<<<<<<< HEAD
             --ci-primary: #198754;
             --ci-primary-dark: #146c43;
             --ci-sidebar-bg: #1e293b;
             --ci-sidebar-hover: #334155;
             --ci-sidebar-active: #198754;
+=======
+            --ci-primary: #0d6efd;
+            --ci-primary-dark: #0a58ca;
+            --ci-sidebar-bg: #1e293b;
+            --ci-sidebar-hover: #334155;
+            --ci-sidebar-active: #0284c7;
+>>>>>>> a198ee1232cd59df41937398d2f3ee82a256444f
             --ci-bg: #f8fafc;
             --ci-card-border: #e2e8f0;
         }
@@ -148,6 +156,7 @@
             background-color: #ffffff;
         }
 
+<<<<<<< HEAD
         /* Realce visual de los campos del formulario */
         .form-control:focus,
         .form-select:focus {
@@ -160,6 +169,8 @@
             box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
         }
 
+=======
+>>>>>>> a198ee1232cd59df41937398d2f3ee82a256444f
         .card-header {
             background-color: #ffffff;
             border-bottom: 1px solid var(--ci-card-border);
