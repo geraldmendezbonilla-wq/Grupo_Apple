@@ -6,7 +6,7 @@
     <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
         <div>
             <h5 class="mb-0 fw-bold text-dark">
-                <i class="bi bi-gender-ambiguous text-warning me-2"></i>Catálogo de Sexos
+                <i class="bi bi-gender-ambiguous text-warning me-2"></i>Listado General de Sexos
             </h5>
             <small class="text-muted">Total de registros: <?= esc($total) ?></small>
         </div>
