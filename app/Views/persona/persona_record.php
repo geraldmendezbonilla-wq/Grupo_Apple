@@ -32,7 +32,7 @@
                     <span class="fw-bold">
                         <i class="bi bi-person-vcard me-2"></i>Ficha de Persona #<?= esc($persona['idpersona']) ?>
                     </span>
-                    <span class="badge bg-light text-primary">Activo</span>
+                    <span class="badge bg-light text-primary">Registro activo</span>
                 </div>
                 <div class="card-body">
                     <div class="text-center mb-4 pb-3 border-bottom">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="card-footer bg-light d-flex justify-content-between">
                     <a href="<?= base_url('persona/edit/' . $persona['idpersona']) ?>" class="btn btn-sm btn-outline-warning text-dark">
-                        <i class="bi bi-pencil-square me-1"></i> Editar Datos
+                        <i class="bi bi-pencil-square me-1"></i> Editar Persona
                     </a>
                     <button type="button" class="btn btn-sm btn-outline-danger"
                             onclick="confirmarBorrado('<?= base_url('persona/delete/' . $persona['idpersona']) ?>', 'Se eliminará la persona <?= esc($persona['nombres'] . ' ' . $persona['apellidos']) ?> junto con todas sus direcciones y correos.')">
@@ -114,7 +114,7 @@
                         <i class="bi bi-geo-alt-fill text-info me-2"></i>Direcciones Registradas (<?= count($direcciones) ?>)
                     </span>
                     <a href="<?= base_url('direccion/add/' . $persona['idpersona']) ?>" class="btn btn-sm btn-info text-white">
-                        <i class="bi bi-plus-circle me-1"></i> Agregar Dirección
+                        <i class="bi bi-plus-circle me-1"></i> Nueva Dirección
                     </a>
                 </div>
                 <div class="card-body p-0">
