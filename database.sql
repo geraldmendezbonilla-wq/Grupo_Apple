@@ -137,6 +137,34 @@ INSERT INTO `estadocivil` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `genero`
+--
+
+DROP TABLE IF EXISTS `genero`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `genero` (
+  `idgenero` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`idgenero`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genero`
+--
+
+LOCK TABLES `genero` WRITE;
+/*!40000 ALTER TABLE `genero` DISABLE KEYS */;
+INSERT INTO `genero` VALUES
+(1,'Masculino'),
+(2,'Femenino'),
+(3,'No binario'),
+(4,'Prefiero no especificar');
+/*!40000 ALTER TABLE `genero` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -152,7 +180,7 @@ CREATE TABLE `migrations` (
   `time` int(11) NOT NULL,
   `batch` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +190,9 @@ CREATE TABLE `migrations` (
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` VALUES
-(1,'2026-10-12-212629','App\\Database\\Migrations\\CreatePersonaTables','default','App',1791840434,1);
+(1,'2026-10-12-212629','App\\Database\\Migrations\\CreatePersonaTables','default','App',1791840434,1),
+(2,'2026-10-16-100000','App\\Database\\Migrations\\CreateGeneroTable','default','App',1792137600,2),
+(3,'2026-10-16-100100','App\\Database\\Migrations\\CreateTelefonoTable','default','App',1792137600,2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,11 +211,14 @@ CREATE TABLE `persona` (
   `fechanacimiento` date DEFAULT NULL,
   `idsexo` int(11) DEFAULT NULL,
   `idestadocivil` int(11) DEFAULT NULL,
+  `idgenero` int(11) DEFAULT NULL,
   PRIMARY KEY (`idpersona`),
   UNIQUE KEY `cedula` (`cedula`),
   KEY `idsexo` (`idsexo`),
   KEY `idestadocivil` (`idestadocivil`),
+  KEY `idgenero` (`idgenero`),
   CONSTRAINT `persona_idestadocivil_foreign` FOREIGN KEY (`idestadocivil`) REFERENCES `estadocivil` (`idestadocivil`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `persona_idgenero_foreign` FOREIGN KEY (`idgenero`) REFERENCES `genero` (`idgenero`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `persona_idsexo_foreign` FOREIGN KEY (`idsexo`) REFERENCES `sexo` (`idsexo`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -197,12 +230,12 @@ CREATE TABLE `persona` (
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
 INSERT INTO `persona` VALUES
-(1,'0801234567','Carlos Alberto','Mendoza Zambrano','1992-05-14',1,1),
-(2,'0802345678','María Fernanda','Quiñónez Hurtado','1995-11-23',2,2),
-(3,'0803456789','Luis Eduardo','Valencia Caicedo','1988-03-30',1,5),
-(4,'0804567890','Ana Patricia','Estupiñán Cortez','1999-08-19',2,1),
-(5,'0805678901','Alex Gabriel','Montaño Bone','2001-01-10',3,1),
-(6,'0806789012','Rosa Elena','Arroyo Mina','1985-07-04',2,3);
+(1,'0801234567','Carlos Alberto','Mendoza Zambrano','1992-05-14',1,1,1),
+(2,'0802345678','María Fernanda','Quiñónez Hurtado','1995-11-23',2,2,2),
+(3,'0803456789','Luis Eduardo','Valencia Caicedo','1988-03-30',1,5,1),
+(4,'0804567890','Ana Patricia','Estupiñán Cortez','1999-08-19',2,1,2),
+(5,'0805678901','Alex Gabriel','Montaño Bone','2001-01-10',3,1,3),
+(6,'0806789012','Rosa Elena','Arroyo Mina','1985-07-04',2,3,2);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,6 +265,42 @@ INSERT INTO `sexo` VALUES
 (3,'No Binario'),
 (4,'Prefiero no especificar');
 /*!40000 ALTER TABLE `sexo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `telefono`
+--
+
+DROP TABLE IF EXISTS `telefono`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `telefono` (
+  `idtelefono` int(11) NOT NULL AUTO_INCREMENT,
+  `idpersona` int(11) NOT NULL,
+  `numero` varchar(20) NOT NULL,
+  `tipo` varchar(50) DEFAULT 'Móvil',
+  `operadora` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`idtelefono`),
+  KEY `idpersona` (`idpersona`),
+  CONSTRAINT `telefono_idpersona_foreign` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `telefono`
+--
+
+LOCK TABLES `telefono` WRITE;
+/*!40000 ALTER TABLE `telefono` DISABLE KEYS */;
+INSERT INTO `telefono` VALUES
+(1,1,'0991234567','Móvil','Claro'),
+(2,1,'062712345','Casa',NULL),
+(3,2,'0982345678','Móvil','Movistar'),
+(4,3,'0973456789','Móvil','CNT'),
+(5,4,'0964567890','Móvil','Claro'),
+(6,5,'0955678901','Móvil','Movistar'),
+(7,6,'062723456','Trabajo',NULL);
+/*!40000 ALTER TABLE `telefono` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
