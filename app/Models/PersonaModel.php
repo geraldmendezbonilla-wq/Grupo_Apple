@@ -19,6 +19,7 @@ class PersonaModel extends Model
         'fechanacimiento',
         'idsexo',
         'idestadocivil',
+        'idgenero',
     ];
 
     protected $validationRules = [
@@ -28,6 +29,7 @@ class PersonaModel extends Model
         'fechanacimiento' => 'permit_empty|valid_date',
         'idsexo'          => 'permit_empty|is_natural_no_zero',
         'idestadocivil'   => 'permit_empty|is_natural_no_zero',
+        'idgenero'        => 'permit_empty|is_natural_no_zero',
     ];
 
     protected $validationMessages = [
@@ -57,9 +59,10 @@ class PersonaModel extends Model
      */
     public function getPersonaDetail($id)
     {
-        return $this->select('persona.*, sexo.nombre AS sexo_nombre, estadocivil.nombre AS estadocivil_nombre')
+        return $this->select('persona.*, sexo.nombre AS sexo_nombre, estadocivil.nombre AS estadocivil_nombre, genero.nombre AS genero_nombre')
                     ->join('sexo', 'sexo.idsexo = persona.idsexo', 'left')
                     ->join('estadocivil', 'estadocivil.idestadocivil = persona.idestadocivil', 'left')
+                    ->join('genero', 'genero.idgenero = persona.idgenero', 'left')
                     ->where('persona.idpersona', (int)$id)
                     ->first();
     }
@@ -69,11 +72,12 @@ class PersonaModel extends Model
      */
     public function getPersonasOrdenadas($search = null)
     {
-        $builder = $this->select('persona.*, sexo.nombre AS sexo_nombre, estadocivil.nombre AS estadocivil_nombre,
+        $builder = $this->select('persona.*, sexo.nombre AS sexo_nombre, estadocivil.nombre AS estadocivil_nombre, genero.nombre AS genero_nombre,
                                   (SELECT COUNT(*) FROM direccion d WHERE d.idpersona = persona.idpersona) AS total_direcciones,
                                   (SELECT COUNT(*) FROM correoelectronico c WHERE c.idpersona = persona.idpersona) AS total_correos')
                         ->join('sexo', 'sexo.idsexo = persona.idsexo', 'left')
                         ->join('estadocivil', 'estadocivil.idestadocivil = persona.idestadocivil', 'left')
+                        ->join('genero', 'genero.idgenero = persona.idgenero', 'left')
                         ->orderBy('persona.idpersona', 'DESC');
 
         if (!empty($search)) {
@@ -83,6 +87,7 @@ class PersonaModel extends Model
                     ->orLike('persona.apellidos', $search)
                     ->orLike('sexo.nombre', $search)
                     ->orLike('estadocivil.nombre', $search)
+                    ->orLike('genero.nombre', $search)
                     ->groupEnd();
         }
 

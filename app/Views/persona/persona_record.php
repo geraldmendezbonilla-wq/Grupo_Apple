@@ -81,6 +81,17 @@
                             <?php endif; ?>
                         </dd>
 
+                        <dt class="col-sm-5 text-muted small text-uppercase">Género:</dt>
+                        <dd class="col-sm-7">
+                            <?php if (!empty($persona['genero_nombre'])): ?>
+                                <span class="badge bg-info-subtle text-info-emphasis">
+                                    <i class="bi bi-person-heart me-1"></i><?= esc($persona['genero_nombre']) ?>
+                                </span>
+                            <?php else: ?>
+                                <span class="text-muted fst-italic">Sin especificar</span>
+                            <?php endif; ?>
+                        </dd>
+
                         <dt class="col-sm-5 text-muted small text-uppercase">Estado Civil:</dt>
                         <dd class="col-sm-7">
                             <?php if (!empty($persona['estadocivil_nombre'])): ?>

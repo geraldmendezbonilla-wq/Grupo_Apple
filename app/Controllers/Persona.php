@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\PersonaModel;
 use App\Models\SexoModel;
 use App\Models\EstadoCivilModel;
+use App\Models\GeneroModel;
 use App\Models\DireccionModel;
 use App\Models\CorreoElectronicoModel;
 
@@ -13,6 +14,7 @@ class Persona extends BaseController
     protected PersonaModel $personaModel;
     protected SexoModel $sexoModel;
     protected EstadoCivilModel $estadoCivilModel;
+    protected GeneroModel $generoModel;
     protected DireccionModel $direccionModel;
     protected CorreoElectronicoModel $correoModel;
 
@@ -21,6 +23,7 @@ class Persona extends BaseController
         $this->personaModel     = new PersonaModel();
         $this->sexoModel        = new SexoModel();
         $this->estadoCivilModel = new EstadoCivilModel();
+        $this->generoModel      = new GeneroModel();
         $this->direccionModel   = new DireccionModel();
         $this->correoModel      = new CorreoElectronicoModel();
     }
@@ -56,6 +59,7 @@ class Persona extends BaseController
                 'correos'        => [],
                 'catalogoSexo'   => $this->sexoModel->findAll(),
                 'catalogoEC'     => $this->estadoCivilModel->findAll(),
+                'catalogoGenero' => $this->generoModel->findAll(),
             ];
             return view('persona/persona_record', $data);
         }
@@ -73,6 +77,7 @@ class Persona extends BaseController
             'correos'        => $this->correoModel->getCorreosByPersona($idpersona),
             'catalogoSexo'   => $this->sexoModel->findAll(),
             'catalogoEC'     => $this->estadoCivilModel->findAll(),
+                'catalogoGenero' => $this->generoModel->findAll(),
         ];
 
         return view('persona/persona_record', $data);
@@ -143,6 +148,7 @@ class Persona extends BaseController
             'module'       => 'persona',
             'catalogoSexo' => $this->sexoModel->findAll(),
             'catalogoEC'   => $this->estadoCivilModel->findAll(),
+            'catalogoGenero' => $this->generoModel->findAll(),
             'errors'       => session()->getFlashdata('errors') ?? [],
             'old'          => session()->getFlashdata('old') ?? [],
         ];
@@ -167,6 +173,7 @@ class Persona extends BaseController
             'fechanacimiento' => !empty($this->request->getPost('fechanacimiento')) ? $this->request->getPost('fechanacimiento') : null,
             'idsexo'          => !empty($this->request->getPost('idsexo')) ? (int)$this->request->getPost('idsexo') : null,
             'idestadocivil'   => !empty($this->request->getPost('idestadocivil')) ? (int)$this->request->getPost('idestadocivil') : null,
+            'idgenero'        => !empty($this->request->getPost('idgenero')) ? (int)$this->request->getPost('idgenero') : null,
         ];
 
         if (!$this->personaModel->insert($postData)) {
@@ -222,6 +229,7 @@ class Persona extends BaseController
             'currentId'    => (int)$id,
             'catalogoSexo' => $this->sexoModel->findAll(),
             'catalogoEC'   => $this->estadoCivilModel->findAll(),
+            'catalogoGenero' => $this->generoModel->findAll(),
             'errors'       => session()->getFlashdata('errors') ?? [],
         ];
 
@@ -250,6 +258,7 @@ class Persona extends BaseController
             'fechanacimiento' => !empty($this->request->getPost('fechanacimiento')) ? $this->request->getPost('fechanacimiento') : null,
             'idsexo'          => !empty($this->request->getPost('idsexo')) ? (int)$this->request->getPost('idsexo') : null,
             'idestadocivil'   => !empty($this->request->getPost('idestadocivil')) ? (int)$this->request->getPost('idestadocivil') : null,
+            'idgenero'        => !empty($this->request->getPost('idgenero')) ? (int)$this->request->getPost('idgenero') : null,
         ];
 
         // Validar unicidad de cédula excluyendo el registro actual

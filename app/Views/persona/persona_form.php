@@ -87,6 +87,19 @@
                         </div>
 
                         <div class="col-md-6">
+                            <label for="idgenero" class="form-label fw-semibold">Género</label>
+                            <select class="form-select <?= isset($errors['idgenero']) ? 'is-invalid' : '' ?>" id="idgenero" name="idgenero">
+                                <option value="">-- Seleccione Género --</option>
+                                <?php foreach ($catalogoGenero as $g): ?>
+                                    <option value="<?= esc($g['idgenero']) ?>" <?= (isset($old['idgenero']) && $old['idgenero'] == $g['idgenero']) ? 'selected' : '' ?>>
+                                        <?= esc($g['nombre']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <div class="form-text">Puede gestionar las opciones en el catálogo de Géneros.</div>
+                        </div>
+
+                        <div class="col-md-6">
                             <label for="idestadocivil" class="form-label fw-semibold">Estado Civil</label>
                             <select class="form-select <?= isset($errors['idestadocivil']) ? 'is-invalid' : '' ?>" id="idestadocivil" name="idestadocivil">
                                 <option value="">-- Seleccione Estado Civil --</option>
