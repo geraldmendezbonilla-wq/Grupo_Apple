@@ -8,6 +8,7 @@ use App\Models\EstadoCivilModel;
 use App\Models\GeneroModel;
 use App\Models\DireccionModel;
 use App\Models\CorreoElectronicoModel;
+use App\Models\TelefonoModel;
 
 class Persona extends BaseController
 {
@@ -17,6 +18,7 @@ class Persona extends BaseController
     protected GeneroModel $generoModel;
     protected DireccionModel $direccionModel;
     protected CorreoElectronicoModel $correoModel;
+    protected TelefonoModel $telefonoModel;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ class Persona extends BaseController
         $this->generoModel      = new GeneroModel();
         $this->direccionModel   = new DireccionModel();
         $this->correoModel      = new CorreoElectronicoModel();
+        $this->telefonoModel    = new TelefonoModel();
     }
 
     /**
@@ -57,6 +60,7 @@ class Persona extends BaseController
                 'posicion'       => ['pos' => 0, 'total' => 0],
                 'direcciones'    => [],
                 'correos'        => [],
+                'telefonos'      => [],
                 'catalogoSexo'   => $this->sexoModel->findAll(),
                 'catalogoEC'     => $this->estadoCivilModel->findAll(),
                 'catalogoGenero' => $this->generoModel->findAll(),
@@ -75,6 +79,7 @@ class Persona extends BaseController
             'posicion'       => $posicion,
             'direcciones'    => $this->direccionModel->getDireccionesByPersona($idpersona),
             'correos'        => $this->correoModel->getCorreosByPersona($idpersona),
+            'telefonos'      => $this->telefonoModel->getTelefonosByPersona($idpersona),
             'catalogoSexo'   => $this->sexoModel->findAll(),
             'catalogoEC'     => $this->estadoCivilModel->findAll(),
                 'catalogoGenero' => $this->generoModel->findAll(),
