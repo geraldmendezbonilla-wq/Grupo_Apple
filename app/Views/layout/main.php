@@ -256,6 +256,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?= base_url('genero') ?>" class="nav-link <?= (isset($module) && $module === 'genero') ? 'active' : '' ?>">
+                    <i class="bi bi-person-heart"></i>
+                    <span>Género</span>
+                </a>
+            </li>
+            <li>
                 <a href="<?= base_url('estadocivil') ?>" class="nav-link <?= (isset($module) && $module === 'estadocivil') ? 'active' : '' ?>">
                     <i class="bi bi-heart-fill"></i>
                     <span>Estado Civil</span>
@@ -304,6 +310,7 @@
                         <li><a class="dropdown-item" href="<?= base_url('correoelectronico/add') ?>"><i class="bi bi-envelope me-2 text-success"></i>Nuevo Correo</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="<?= base_url('sexo/add') ?>"><i class="bi bi-gender-ambiguous me-2 text-warning"></i>Nuevo Sexo</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('genero/add') ?>"><i class="bi bi-person-heart me-2 text-info"></i>Nuevo Género</a></li>
                         <li><a class="dropdown-item" href="<?= base_url('estadocivil/add') ?>"><i class="bi bi-heart me-2 text-danger"></i>Nuevo Estado Civil</a></li>
                     </ul>
                 </div>

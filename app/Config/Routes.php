@@ -120,3 +120,21 @@ $routes->group('correo', static function ($routes) {
     $routes->post('update/(:num)', 'Correo::update/$1');
     $routes->match(['get', 'post'], 'delete/(:num)', 'Correo::delete/$1');
 });
+
+// 6. Módulo Género
+$routes->group('genero', static function ($routes) {
+    $routes->get('', 'Genero::index');
+    $routes->get('actual', 'Genero::actual');
+    $routes->get('actual/(:num)', 'Genero::actual/$1');
+    $routes->get('elprimero', 'Genero::elprimero');
+    $routes->get('elultimo', 'Genero::elultimo');
+    $routes->get('siguiente/(:num)', 'Genero::siguiente/$1');
+    $routes->get('anterior/(:num)', 'Genero::anterior/$1');
+    $routes->get('listar', 'Genero::listar');
+    $routes->get('add', 'Genero::add');
+    $routes->get('create', 'Genero::add');
+    $routes->post('store', 'Genero::store');
+    $routes->get('edit/(:num)', 'Genero::edit/$1');
+    $routes->post('update/(:num)', 'Genero::update/$1');
+    $routes->match(['get', 'post'], 'delete/(:num)', 'Genero::delete/$1');
+});
