@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <!-- Selector de Persona -->
                     <div class="mb-3">
-                        <label for="idpersona" class="form-label fw-semibold">Persona Propietaria <span class="text-danger">*</span></label>
+                        <label for="idpersona" class="form-label fw-semibold">Propietario <span class="text-danger">*</span></label>
                         <select class="form-select <?= isset($errors['idpersona']) ? 'is-invalid' : '' ?>" id="idpersona" name="idpersona" required>
                             <option value="">-- Seleccione una Persona --</option>
                             <?php foreach ($personas as $p): ?>
@@ -43,7 +43,7 @@
                         <label for="correo" class="form-label fw-semibold">Correo Electrónico <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
-                            <input type="email" class="form-control <?= isset($errors['correo']) ? 'is-invalid' : '' ?>" id="correo" name="correo" value="<?= esc($old['correo'] ?? old('correo')) ?>" placeholder="ejemplo@correo.com" required>
+                            <input type="email" class="form-control <?= isset($errors['correo']) ? 'is-invalid' : '' ?>" id="correo" name="correo" value="<?= esc($old['correo'] ?? old('correo')) ?>" placeholder="usuario@utelvt.edu.ec" required>
                             <?php if (isset($errors['correo'])): ?>
                                 <div class="invalid-feedback"><?= esc($errors['correo']) ?></div>
                             <?php endif; ?>
