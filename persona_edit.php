@@ -11,7 +11,7 @@
     <div class="col-lg-8">
         <div class="card shadow-sm">
             <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
-                <span class="fw-bold">
+                <span class="fw-bold" id="tituloEdit">
                     <i class="bi bi-pencil-square me-2"></i>Editar Persona #<?= esc($persona['idpersona']) ?>
                 </span>
                 <a href="<?= base_url('persona/actual/' . $persona['idpersona']) ?>" class="btn btn-sm btn-outline-dark">
@@ -105,5 +105,21 @@
         </div>
     </div>
 </div>
+<script>
+    const inputNombres = document.getElementById('nombres');
+    const inputApellidos = document.getElementById('apellidos');
+    const tituloEdit = document.getElementById('tituloEdit');
+    const idPersona = "<?= esc($persona['idpersona']) ?>";
 
+    function actualizarTituloEnVivo() {
+        let nombre = inputNombres.value.trim();
+        let apellido = inputApellidos.value.trim();
+        let textoCompleto = (nombre || apellido) ? `${nombre} ${apellido}` : `Persona #${idPersona}`;
+        
+        tituloEdit.innerHTML = `<i class="bi bi-pencil-square me-2"></i>Editando: ${textoCompleto}`;
+    }
+
+    inputNombres.addEventListener('input', actualizarTituloEnVivo);
+    inputApellidos.addEventListener('input', actualizarTituloEnVivo);
+</script>
 <?= $this->endSection() ?>
